@@ -7,12 +7,8 @@
 
   <title>Gilead Business Advisory Ltd. | Strategic Advisory for Commercial Growth</title>
 
-  <!-- Main Styles -->
-
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
-
-  <!-- Google Fonts -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +21,7 @@
   <style>
 
     /* =========================================================
-       GLOBAL MOBILE FIXES
+       GENERAL
     ========================================================= */
 
     * {
@@ -33,33 +29,30 @@
     }
 
     html {
-      width: 100%;
       overflow-x: hidden;
     }
 
     body {
-      width: 100%;
       margin: 0;
       overflow-x: hidden;
     }
 
 
     /* =========================================================
-       NAVIGATION
+       NAVBAR
     ========================================================= */
 
     .gilead-navbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1.5rem;
+      gap: 2rem;
       width: 100%;
     }
 
     .gilead-navigation {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 1.5rem;
     }
 
@@ -85,12 +78,74 @@
       font-weight: 600;
 
       text-decoration: none;
-
-      transition: opacity 0.2s ease;
     }
 
-    .nav-consultation:hover {
-      opacity: 0.9;
+
+    /* =========================================================
+       HAMBURGER
+    ========================================================= */
+
+    .mobile-menu-button {
+      display: none;
+
+      width: 42px;
+      height: 42px;
+
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+
+      background: var(--white);
+
+      cursor: pointer;
+
+      align-items: center;
+      justify-content: center;
+
+      flex-direction: column;
+
+      gap: 5px;
+
+      padding: 0;
+
+      flex-shrink: 0;
+    }
+
+    .mobile-menu-button span {
+      display: block;
+
+      width: 20px;
+      height: 2px;
+
+      background: var(--navy-dark);
+
+      border-radius: 2px;
+
+      transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+    }
+
+    /* Hamburger animation */
+
+    .mobile-menu-button.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .mobile-menu-button.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-button.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    .mobile-menu {
+      display: none;
     }
 
 
@@ -216,33 +271,21 @@
 
 
     /* =========================================================
-       MOBILE
+       MOBILE NAVIGATION
     ========================================================= */
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
 
       /* -----------------------------------------
-         Container
-      ----------------------------------------- */
-
-      .container {
-        width: 100%;
-
-        max-width: 100%;
-
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-
-
-      /* -----------------------------------------
-         Header
+         Navbar
       ----------------------------------------- */
 
       .header-nav {
-        padding: 0.7rem 0;
+        position: relative;
 
-        width: 100%;
+        z-index: 1000;
+
+        padding: 0.75rem 0;
       }
 
       .header-nav .container {
@@ -253,11 +296,9 @@
       .gilead-navbar {
         display: flex;
 
-        flex-wrap: wrap;
-
-        gap: 0.65rem;
-
         width: 100%;
+
+        gap: 0.75rem;
       }
 
 
@@ -273,8 +314,6 @@
         flex: 1;
 
         min-width: 0;
-
-        text-decoration: none;
       }
 
       .brand-logo {
@@ -292,62 +331,114 @@
 
 
       /* -----------------------------------------
-         Consultation Button
+         Hide Desktop Navigation
       ----------------------------------------- */
 
-      .nav-consultation {
-        flex-shrink: 0;
-
-        font-size: 0.72rem;
-
-        padding: 0.55rem 0.7rem;
-
-        border-radius: 7px;
-
-        line-height: 1.2;
+      .gilead-navigation {
+        display: none;
       }
 
 
       /* -----------------------------------------
-         Mobile Navigation
+         Smaller Consultation Button
       ----------------------------------------- */
 
-      .gilead-navigation {
-        order: 3;
+      .nav-consultation {
+        font-size: 0.7rem;
 
-        width: 100%;
+        padding: 0.55rem 0.65rem;
+
+        border-radius: 7px;
+      }
+
+
+      /* -----------------------------------------
+         Show Hamburger
+      ----------------------------------------- */
+
+      .mobile-menu-button {
+        display: flex;
+      }
+
+
+      /* -----------------------------------------
+         Dropdown Menu
+      ----------------------------------------- */
+
+      .mobile-menu {
+        position: absolute;
+
+        top: calc(100% + 8px);
+
+        left: 1rem;
+
+        right: 1rem;
 
         display: flex;
 
-        justify-content: flex-start;
+        flex-direction: column;
 
-        gap: 0.3rem;
+        background: var(--white);
 
-        overflow-x: auto;
+        border: 1px solid var(--border-light);
 
-        overflow-y: hidden;
+        border-radius: 12px;
 
-        padding: 0.25rem 0 0.4rem;
+        box-shadow: var(--card-shadow);
 
-        scrollbar-width: none;
+        padding: 0.5rem;
 
-        -webkit-overflow-scrolling: touch;
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform: translateY(-8px);
+
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease,
+          visibility 0.2s ease;
       }
 
-      .gilead-navigation::-webkit-scrollbar {
-        display: none;
+      .mobile-menu.open {
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: translateY(0);
       }
 
-      .gilead-navigation .nav-link {
-        flex: 0 0 auto;
+      .mobile-menu a {
+        display: block;
 
-        white-space: nowrap;
+        width: 100%;
 
-        font-size: 0.78rem;
+        padding: 0.9rem 1rem;
 
-        padding: 0.5rem 0.7rem;
+        border-radius: 8px;
 
-        border-radius: 6px;
+        color: var(--navy-dark);
+
+        text-decoration: none;
+
+        font-size: 0.9rem;
+
+        font-weight: 600;
+      }
+
+      .mobile-menu a:hover,
+      .mobile-menu a.active {
+        background: rgba(0, 0, 0, 0.04);
+      }
+
+      .mobile-menu .mobile-book {
+        margin-top: 0.25rem;
+
+        background: var(--royal-blue);
+
+        color: #ffffff;
+
+        text-align: center;
       }
 
 
@@ -356,7 +447,7 @@
       ----------------------------------------- */
 
       .hero-section {
-        padding: 2.8rem 0 2rem;
+        padding: 3rem 0 2rem;
       }
 
       .hero-grid {
@@ -401,8 +492,6 @@
       .hero-buttons .btn {
         width: 100%;
 
-        max-width: 100%;
-
         display: flex;
 
         align-items: center;
@@ -414,8 +503,6 @@
         padding: 0.8rem 1rem;
 
         font-size: 0.88rem;
-
-        line-height: 1.2;
       }
 
 
@@ -443,8 +530,6 @@
         padding: 0.85rem !important;
 
         gap: 0.7rem;
-
-        min-width: 0;
       }
 
       .interactive-card strong {
@@ -478,8 +563,6 @@
         font-size: 1.45rem !important;
 
         line-height: 1.25;
-
-        margin-bottom: 0.8rem;
       }
 
       .cta-banner p {
@@ -493,9 +576,9 @@
 
         display: flex;
 
-        align-items: center;
-
         justify-content: center;
+
+        align-items: center;
 
         text-align: center;
 
@@ -535,15 +618,15 @@
     @media (max-width: 380px) {
 
       .nav-consultation {
-        font-size: 0.67rem;
+        font-size: 0.65rem;
 
         padding: 0.5rem 0.55rem;
       }
 
-      .gilead-navigation .nav-link {
-        font-size: 0.73rem;
+      .mobile-menu-button {
+        width: 40px;
 
-        padding: 0.45rem 0.55rem;
+        height: 40px;
       }
 
       .hero-title {
@@ -623,49 +706,34 @@
   </a>
 
 
-  <!-- Navigation -->
+  <!-- Desktop Navigation -->
 
   <nav class="gilead-navigation">
 
-    <a
-      href="index.html"
-      class="nav-link active"
-    >
+    <a href="index.html" class="nav-link active">
       Home
     </a>
 
-    <a
-      href="services.html"
-      class="nav-link"
-    >
+    <a href="services.html" class="nav-link">
       Services
     </a>
 
-    <a
-      href="about.html"
-      class="nav-link"
-    >
+    <a href="about.html" class="nav-link">
       About
     </a>
 
-    <a
-      href="insights.html"
-      class="nav-link"
-    >
+    <a href="insights.html" class="nav-link">
       Insights
     </a>
 
-    <a
-      href="contact.html"
-      class="nav-link"
-    >
+    <a href="contact.html" class="nav-link">
       Contact
     </a>
 
   </nav>
 
 
-  <!-- Consultation -->
+  <!-- Desktop / Mobile Consultation -->
 
   <a
     href="book-consultation.html"
@@ -675,13 +743,72 @@
   </a>
 
 
+  <!-- Mobile Hamburger -->
+
+  <button
+    class="mobile-menu-button"
+    id="mobileMenuButton"
+    type="button"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+    aria-controls="mobileMenu"
+  >
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </button>
+
+
+  <!-- Mobile Dropdown -->
+
+  <nav
+    class="mobile-menu"
+    id="mobileMenu"
+    aria-label="Mobile navigation"
+  >
+
+    <a
+      href="index.html"
+      class="active"
+    >
+      Home
+    </a>
+
+    <a href="services.html">
+      Services
+    </a>
+
+    <a href="about.html">
+      About
+    </a>
+
+    <a href="insights.html">
+      Insights
+    </a>
+
+    <a href="contact.html">
+      Contact
+    </a>
+
+    <a
+      href="book-consultation.html"
+      class="mobile-book"
+    >
+      Book a Consultation &#8599;
+    </a>
+
+  </nav>
+
+
 </div>
 ```
 
   </header>
 
   <!-- =========================================================
-       HERO SECTION
+       HERO
   ========================================================== -->
 
   <section class="hero-section">
@@ -813,7 +940,6 @@
       </a>
 
 
-
       <!-- Brand & Communications -->
 
       <a
@@ -845,7 +971,6 @@
         </span>
 
       </a>
-
 
 
       <!-- Product & Growth -->
@@ -891,7 +1016,7 @@
   </section>
 
   <!-- =========================================================
-       CTA SECTION
+       CTA
   ========================================================== -->
 
   <section class="container">
@@ -947,7 +1072,7 @@
   </section>
 
   <!-- =========================================================
-       WHATSAPP FLOATING BUTTON
+       WHATSAPP
   ========================================================== -->
 
 <a
@@ -976,17 +1101,128 @@ aria-label="Direct WhatsApp Consultation"
   </a>
 
   <!-- =========================================================
-       JAVASCRIPT
+       MOBILE MENU JAVASCRIPT
   ========================================================== -->
 
+  <script>
+
+    const mobileMenuButton =
+      document.getElementById("mobileMenuButton");
+
+    const mobileMenu =
+      document.getElementById("mobileMenu");
+
+
+    /* Open / close menu */
+
+    mobileMenuButton.addEventListener("click", function () {
+
+      const isOpen =
+        mobileMenu.classList.toggle("open");
+
+      mobileMenuButton.classList.toggle(
+        "active",
+        isOpen
+      );
+
+      mobileMenuButton.setAttribute(
+        "aria-expanded",
+        isOpen
+      );
+
+      mobileMenuButton.setAttribute(
+        "aria-label",
+        isOpen
+          ? "Close navigation menu"
+          : "Open navigation menu"
+      );
+
+    });
+
+
+    /* Close menu after selecting a page */
+
+    const mobileLinks =
+      mobileMenu.querySelectorAll("a");
+
+    mobileLinks.forEach(function (link) {
+
+      link.addEventListener("click", function () {
+
+        mobileMenu.classList.remove("open");
+
+        mobileMenuButton.classList.remove("active");
+
+        mobileMenuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        mobileMenuButton.setAttribute(
+          "aria-label",
+          "Open navigation menu"
+        );
+
+      });
+
+    });
+
+
+    /* Close menu when clicking outside */
+
+    document.addEventListener("click", function (event) {
+
+      const clickedInsideMenu =
+        mobileMenu.contains(event.target);
+
+      const clickedButton =
+        mobileMenuButton.contains(event.target);
+
+      if (!clickedInsideMenu && !clickedButton) {
+
+        mobileMenu.classList.remove("open");
+
+        mobileMenuButton.classList.remove("active");
+
+        mobileMenuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        mobileMenuButton.setAttribute(
+          "aria-label",
+          "Open navigation menu"
+        );
+
+      }
+
+    });
+
+
+    /* Close menu when returning to desktop */
+
+    window.addEventListener("resize", function () {
+
+      if (window.innerWidth > 768) {
+
+        mobileMenu.classList.remove("open");
+
+        mobileMenuButton.classList.remove("active");
+
+        mobileMenuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      }
+
+    });
+
+  </script>
+
+  <!-- Main Website JavaScript -->
+
   <script src="js/main.js"></script>
-
-  <!--
-    navigation.js is intentionally NOT loaded here.
-
-    The mobile hamburger menu has been removed.
-    The navigation is now directly accessible on mobile.
-  -->
 
 </body>
 </html>
