@@ -1,107 +1,992 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Gilead Business Advisory Ltd. | Strategic Advisory for Commercial Growth</title>
+
+  <!-- Main Styles -->
+
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
+
+  <!-- Google Fonts -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =========================================================
+       GLOBAL MOBILE FIXES
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      width: 100%;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
+    .gilead-navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      width: 100%;
+    }
+
+    .gilead-navigation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .gilead-navigation .nav-link {
+      white-space: nowrap;
+    }
+
+    .nav-consultation {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      white-space: nowrap;
+
+      background: var(--royal-blue);
+      color: #ffffff;
+
+      padding: 0.7rem 1rem;
+
+      border-radius: 8px;
+
+      font-size: 0.85rem;
+      font-weight: 600;
+
+      text-decoration: none;
+
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-consultation:hover {
+      opacity: 0.9;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero-section {
+      padding: 5rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 3rem;
+
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+
+      line-height: 1.1;
+
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+
+      color: var(--text-muted);
+
+      margin-bottom: 2rem;
+
+      max-width: 500px;
+
+      line-height: 1.65;
+    }
+
+    .hero-buttons {
+      display: flex;
+
+      gap: 1rem;
+
+      flex-wrap: wrap;
+    }
+
+
+    /* =========================================================
+       GROWTH FRAMEWORK
+    ========================================================= */
+
+    .growth-card {
+      background: var(--white);
+
+      border-radius: 16px;
+
+      padding: 2rem;
+
+      border: 1px solid var(--border-light);
+
+      box-shadow: var(--card-shadow);
+    }
+
+
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .cta-banner {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 2rem;
+    }
+
+
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .gilead-navbar {
+        gap: 1rem;
+      }
+
+      .gilead-navigation {
+        gap: 0.8rem;
+      }
+
+      .gilead-navigation .nav-link {
+        font-size: 0.82rem;
+      }
+
+      .nav-consultation {
+        font-size: 0.78rem;
+
+        padding: 0.65rem 0.75rem;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+
+        gap: 2.5rem;
+      }
+
+      .hero-description {
+        max-width: 650px;
+      }
+
+      .cta-banner {
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 600px) {
+
+      /* -----------------------------------------
+         Container
+      ----------------------------------------- */
+
+      .container {
+        width: 100%;
+
+        max-width: 100%;
+
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+
+      /* -----------------------------------------
+         Header
+      ----------------------------------------- */
+
+      .header-nav {
+        padding: 0.7rem 0;
+
+        width: 100%;
+      }
+
+      .header-nav .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .gilead-navbar {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 0.65rem;
+
+        width: 100%;
+      }
+
+
+      /* -----------------------------------------
+         Brand
+      ----------------------------------------- */
+
+      .nav-brand {
+        display: flex;
+
+        align-items: center;
+
+        flex: 1;
+
+        min-width: 0;
+
+        text-decoration: none;
+      }
+
+      .brand-logo {
+        width: 38px;
+        height: 38px;
+
+        min-width: 38px;
+
+        font-size: 1rem;
+      }
+
+      .brand-text {
+        display: none;
+      }
+
+
+      /* -----------------------------------------
+         Consultation Button
+      ----------------------------------------- */
+
+      .nav-consultation {
+        flex-shrink: 0;
+
+        font-size: 0.72rem;
+
+        padding: 0.55rem 0.7rem;
+
+        border-radius: 7px;
+
+        line-height: 1.2;
+      }
+
+
+      /* -----------------------------------------
+         Mobile Navigation
+      ----------------------------------------- */
+
+      .gilead-navigation {
+        order: 3;
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: flex-start;
+
+        gap: 0.3rem;
+
+        overflow-x: auto;
+
+        overflow-y: hidden;
+
+        padding: 0.25rem 0 0.4rem;
+
+        scrollbar-width: none;
+
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .gilead-navigation::-webkit-scrollbar {
+        display: none;
+      }
+
+      .gilead-navigation .nav-link {
+        flex: 0 0 auto;
+
+        white-space: nowrap;
+
+        font-size: 0.78rem;
+
+        padding: 0.5rem 0.7rem;
+
+        border-radius: 6px;
+      }
+
+
+      /* -----------------------------------------
+         Hero
+      ----------------------------------------- */
+
+      .hero-section {
+        padding: 2.8rem 0 2rem;
+      }
+
+      .hero-grid {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 2rem;
+      }
+
+      .hero-title {
+        font-size: 2.25rem;
+
+        line-height: 1.12;
+
+        margin-bottom: 1rem;
+      }
+
+      .hero-description {
+        font-size: 0.96rem;
+
+        line-height: 1.65;
+
+        margin-bottom: 1.5rem;
+      }
+
+
+      /* -----------------------------------------
+         Hero Buttons
+      ----------------------------------------- */
+
+      .hero-buttons {
+        display: flex;
+
+        flex-direction: column;
+
+        width: 100%;
+
+        gap: 0.7rem;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+
+        max-width: 100%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        text-align: center;
+
+        padding: 0.8rem 1rem;
+
+        font-size: 0.88rem;
+
+        line-height: 1.2;
+      }
+
+
+      /* -----------------------------------------
+         Growth Framework
+      ----------------------------------------- */
+
+      .growth-card {
+        width: 100%;
+
+        padding: 1.2rem;
+
+        border-radius: 14px;
+      }
+
+      .growth-card h3 {
+        font-size: 1.1rem !important;
+
+        margin-bottom: 1.1rem !important;
+      }
+
+      .interactive-card {
+        width: 100%;
+
+        padding: 0.85rem !important;
+
+        gap: 0.7rem;
+
+        min-width: 0;
+      }
+
+      .interactive-card strong {
+        font-size: 0.88rem !important;
+      }
+
+      .interactive-card span {
+        font-size: 0.73rem !important;
+
+        line-height: 1.4;
+      }
+
+
+      /* -----------------------------------------
+         CTA
+      ----------------------------------------- */
+
+      .cta-banner {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 1.2rem;
+
+        padding: 1.4rem !important;
+
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-banner h2 {
+        font-size: 1.45rem !important;
+
+        line-height: 1.25;
+
+        margin-bottom: 0.8rem;
+      }
+
+      .cta-banner p {
+        font-size: 0.88rem;
+
+        line-height: 1.6;
+      }
+
+      .cta-banner .btn {
+        width: 100%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        text-align: center;
+
+        padding: 0.8rem 1rem !important;
+
+        font-size: 0.84rem !important;
+      }
+
+
+      /* -----------------------------------------
+         WhatsApp
+      ----------------------------------------- */
+
+      .whatsapp-float {
+        width: 50px;
+
+        height: 50px;
+
+        right: 15px;
+
+        bottom: 15px;
+      }
+
+      .whatsapp-float svg {
+        width: 21px;
+
+        height: 21px;
+      }
+
+    }
+
+
+    /* =========================================================
+       VERY SMALL PHONES
+    ========================================================= */
+
+    @media (max-width: 380px) {
+
+      .nav-consultation {
+        font-size: 0.67rem;
+
+        padding: 0.5rem 0.55rem;
+      }
+
+      .gilead-navigation .nav-link {
+        font-size: 0.73rem;
+
+        padding: 0.45rem 0.55rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-description {
+        font-size: 0.9rem;
+      }
+
+      .hero-buttons .btn {
+        font-size: 0.82rem;
+
+        padding: 0.75rem 0.8rem;
+      }
+
+      .growth-card {
+        padding: 1rem;
+      }
+
+      .cta-banner {
+        padding: 1.15rem !important;
+      }
+
+      .cta-banner h2 {
+        font-size: 1.3rem !important;
+      }
+
+    }
+
+  </style>
+
 </head>
+
 <body class="bg-grid-pattern">
 
-  <!-- Header Navigation -->
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
+
   <header class="header-nav">
-    <div class="container flex items-center justify-between">
-      <a href="index.html" class="nav-brand">
-        <div class="brand-logo">G</div>
-        <div>
-          <div style="font-weight: 800; line-height: 1; font-size: 1.1rem; color: var(--navy-dark);">Gilead</div>
-          <div style="font-size: 0.65rem; letter-spacing: 0.05em; color: var(--text-muted); text-transform: uppercase;">Business Advisory</div>
-        </div>
-      </a>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link active">Home</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="insights.html" class="nav-link">Insights</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
-      <a href="book-consultation.html" class="btn btn-primary">Book Consultation &#8599;</a>
-    </div>
-  </header>
 
-  <!-- Hero Section matched to PRD & visual reference -->
-  <section style="padding: 5rem 0 3rem 0;">
-    <div class="container grid" style="grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
-      <div>
-        <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--royal-blue); margin-bottom: 1rem;">Business Advisory & Growth</div>
-        <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem;">
-          Strategic Advisory for <span style="color: var(--royal-blue);">Commercial Growth.</span>
-        </h1>
-        <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 500px;">
-          Gilead Business Advisory helps ambitious businesses, executives, and organizations solve complex commercial challenges through strategic thinking and high-impact execution.
-        </p>
-        <div class="flex" style="gap: 1rem;">
-          <a href="book-consultation.html" class="btn btn-primary">Book a Consultation &#8599;</a>
-          <a href="services.html" class="btn btn-secondary">Explore Our Services &#8594;</a>
-        </div>
+```
+<div class="container gilead-navbar">
+
+
+  <!-- Brand -->
+
+  <a href="index.html" class="nav-brand">
+
+    <div class="brand-logo">
+      G
+    </div>
+
+    <div class="brand-text">
+
+      <div style="
+        font-weight: 800;
+        line-height: 1;
+        font-size: 1.1rem;
+        color: var(--navy-dark);
+      ">
+        Gilead
       </div>
 
-      <!-- Growth Framework Interactive Preview -->
-      <div style="background: var(--white); border-radius: 16px; padding: 2rem; border: 1px solid var(--border-light); box-shadow: var(--card-shadow);">
-        <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem;">Gilead Advisory</div>
-        <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem;">Growth Framework</h3>
-        
-        <div class="flex flex-col" style="gap: 1rem;">
-          <a href="digital-marketing.html" class="interactive-card flex items-center justify-between" style="padding: 1rem 1.25rem;">
-            <div>
-              <strong style="display: block; font-size: 1rem;">Digital Marketing</strong>
-              <span style="font-size: 0.85rem; color: var(--text-muted);">Build demand and strengthen your presence.</span>
-            </div>
-            <span style="font-size: 1.2rem;">&#8599;</span>
-          </a>
-          <a href="brand-communications.html" class="interactive-card flex items-center justify-between" style="padding: 1rem 1.25rem;">
-            <div>
-              <strong style="display: block; font-size: 1rem;">Brand & Communications</strong>
-              <span style="font-size: 0.85rem; color: var(--text-muted);">Positioning and authority messaging.</span>
-            </div>
-            <span style="font-size: 1.2rem;">&#8599;</span>
-          </a>
-          <a href="product-growth.html" class="interactive-card flex items-center justify-between" style="padding: 1rem 1.25rem;">
-            <div>
-              <strong style="display: block; font-size: 1rem;">Product & Growth</strong>
-              <span style="font-size: 0.85rem; color: var(--text-muted);">Go-to-market strategies and scale.</span>
-            </div>
-            <span style="font-size: 1.2rem;">&#8599;</span>
-          </a>
-        </div>
+      <div style="
+        font-size: 0.65rem;
+        letter-spacing: 0.05em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+      ">
+        Business Advisory
       </div>
-    </div>
-  </section>
 
-  <!-- Conversion CTA Banner Section (exact match to screenshot visual guide) -->
-  <section class="container">
-    <div class="cta-banner">
-      <div>
-        <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--soft-blue); margin-bottom: 0.5rem;">Start A Conversation</div>
-        <h2>Have a business challenge worth solving?</h2>
-        <p>Tell us what you're working on. We'll review your needs and explore how Gilead Business Advisory can help.</p>
-      </div>
-      <a href="book-consultation.html" class="btn" style="background: var(--white); color: var(--navy-dark); font-size: 1rem; padding: 1rem 2rem;">Book a Consultation &#8599;</a>
     </div>
-  </section>
 
-  <!-- Floating Direct WhatsApp Action Button -->
-  <a href="https://wa.me/2349135481136?text=Hello%20Gilead%20Advisory%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." class="whatsapp-float" target="_blank" aria-label="Direct WhatsApp Consultation">
-    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-0.999 3.648 3.742-0.981z"/></svg>
   </a>
 
+
+  <!-- Navigation -->
+
+  <nav class="gilead-navigation">
+
+    <a
+      href="index.html"
+      class="nav-link active"
+    >
+      Home
+    </a>
+
+    <a
+      href="services.html"
+      class="nav-link"
+    >
+      Services
+    </a>
+
+    <a
+      href="about.html"
+      class="nav-link"
+    >
+      About
+    </a>
+
+    <a
+      href="insights.html"
+      class="nav-link"
+    >
+      Insights
+    </a>
+
+    <a
+      href="contact.html"
+      class="nav-link"
+    >
+      Contact
+    </a>
+
+  </nav>
+
+
+  <!-- Consultation -->
+
+  <a
+    href="book-consultation.html"
+    class="nav-consultation"
+  >
+    Book Consultation &#8599;
+  </a>
+
+
+</div>
+```
+
+  </header>
+
+  <!-- =========================================================
+       HERO SECTION
+  ========================================================== -->
+
+  <section class="hero-section">
+
+```
+<div class="container hero-grid">
+
+
+  <!-- Hero Content -->
+
+  <div>
+
+    <div style="
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--royal-blue);
+      margin-bottom: 1rem;
+    ">
+      Business Advisory & Growth
+    </div>
+
+
+    <h1 class="hero-title">
+
+      Strategic Advisory for
+
+      <span style="color: var(--royal-blue);">
+        Commercial Growth.
+      </span>
+
+    </h1>
+
+
+    <p class="hero-description">
+
+      Gilead Business Advisory helps ambitious businesses,
+      executives, and organizations solve complex commercial
+      challenges through strategic thinking and high-impact execution.
+
+    </p>
+
+
+    <div class="hero-buttons">
+
+      <a
+        href="book-consultation.html"
+        class="btn btn-primary"
+      >
+        Book a Consultation &#8599;
+      </a>
+
+
+      <a
+        href="services.html"
+        class="btn btn-secondary"
+      >
+        Explore Our Services &#8594;
+      </a>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       GROWTH FRAMEWORK
+  ====================================================== -->
+
+  <div class="growth-card">
+
+    <div style="
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    ">
+      Gilead Advisory
+    </div>
+
+
+    <h3 style="
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    ">
+      Growth Framework
+    </h3>
+
+
+    <div
+      class="flex flex-col"
+      style="gap: 1rem;"
+    >
+
+
+      <!-- Digital Marketing -->
+
+      <a
+        href="digital-marketing.html"
+        class="interactive-card flex items-center justify-between"
+        style="padding: 1rem 1.25rem;"
+      >
+
+        <div>
+
+          <strong style="
+            display: block;
+            font-size: 1rem;
+          ">
+            Digital Marketing
+          </strong>
+
+          <span style="
+            font-size: 0.85rem;
+            color: var(--text-muted);
+          ">
+            Build demand and strengthen your presence.
+          </span>
+
+        </div>
+
+        <span style="font-size: 1.2rem;">
+          &#8599;
+        </span>
+
+      </a>
+
+
+
+      <!-- Brand & Communications -->
+
+      <a
+        href="brand-communications.html"
+        class="interactive-card flex items-center justify-between"
+        style="padding: 1rem 1.25rem;"
+      >
+
+        <div>
+
+          <strong style="
+            display: block;
+            font-size: 1rem;
+          ">
+            Brand & Communications
+          </strong>
+
+          <span style="
+            font-size: 0.85rem;
+            color: var(--text-muted);
+          ">
+            Positioning and authority messaging.
+          </span>
+
+        </div>
+
+        <span style="font-size: 1.2rem;">
+          &#8599;
+        </span>
+
+      </a>
+
+
+
+      <!-- Product & Growth -->
+
+      <a
+        href="product-growth.html"
+        class="interactive-card flex items-center justify-between"
+        style="padding: 1rem 1.25rem;"
+      >
+
+        <div>
+
+          <strong style="
+            display: block;
+            font-size: 1rem;
+          ">
+            Product & Growth
+          </strong>
+
+          <span style="
+            font-size: 0.85rem;
+            color: var(--text-muted);
+          ">
+            Go-to-market strategies and scale.
+          </span>
+
+        </div>
+
+        <span style="font-size: 1.2rem;">
+          &#8599;
+        </span>
+
+      </a>
+
+
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- =========================================================
+       CTA SECTION
+  ========================================================== -->
+
+  <section class="container">
+
+```
+<div class="cta-banner">
+
+
+  <div>
+
+    <div style="
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--soft-blue);
+      margin-bottom: 0.5rem;
+    ">
+      Start A Conversation
+    </div>
+
+
+    <h2>
+      Have a business challenge worth solving?
+    </h2>
+
+
+    <p>
+      Tell us what you're working on. We'll review your needs
+      and explore how Gilead Business Advisory can help.
+    </p>
+
+  </div>
+
+
+  <a
+    href="book-consultation.html"
+    class="btn"
+    style="
+      background: var(--white);
+      color: var(--navy-dark);
+      font-size: 1rem;
+      padding: 1rem 2rem;
+    "
+  >
+    Book a Consultation &#8599;
+  </a>
+
+
+</div>
+```
+
+  </section>
+
+  <!-- =========================================================
+       WHATSAPP FLOATING BUTTON
+  ========================================================== -->
+
+<a
+href="https://wa.me/2349135481136?text=Hello%20Gilead%20Advisory%2C%20I%20would%20like%20to%20enquire%20about%20your%20services."
+class="whatsapp-float"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Direct WhatsApp Consultation"
+
+>
+
+```
+<svg
+  width="24"
+  height="24"
+  fill="currentColor"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+
+  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-0.999 3.648 3.742-0.981z"/>
+
+</svg>
+```
+
+  </a>
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================== -->
+
   <script src="js/main.js"></script>
-  <script src="js/navigation.js"></script>
+
+  <!--
+    navigation.js is intentionally NOT loaded here.
+
+    The mobile hamburger menu has been removed.
+    The navigation is now directly accessible on mobile.
+  -->
+
 </body>
 </html>
