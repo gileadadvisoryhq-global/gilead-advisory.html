@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact Us | Gilead Business Advisory Ltd.</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <style>
+    /* ================================
+       REMOVE ALL HOVER EFFECTS
+       ================================ */
+
+    .interactive-card,
+    .interactive-card:hover,
+    .btn,
+    .btn:hover,
+    a,
+    a:hover,
+    .nav-link,
+    .nav-link:hover {
+      transform: none !important;
+      transition: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Keep buttons visually static */
+    .btn-primary:hover {
+      background-color: var(--navy-dark) !important;
+      color: #ffffff !important;
+    }
+
+    /* Keep cards static */
+    .interactive-card:hover {
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Mobile form layout */
+    @media (max-width: 700px) {
+      .form-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ================================
+       NAVIGATION
+       ================================ -->
+
+  <header class="header-nav">
+    <div class="container flex items-center justify-between">
+
+```
+  <a href="index.html" class="nav-brand">
+    <div class="brand-logo">G</div>
+
+    <div>
+      <div style="
+        font-weight: 800;
+        line-height: 1;
+        font-size: 1.1rem;
+        color: var(--navy-dark);
+      ">
+        Gilead
+      </div>
+
+      <div style="
+        font-size: 0.65rem;
+        letter-spacing: 0.05em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+      ">
+        Business Advisory
+      </div>
+    </div>
+  </a>
+
+  <nav>
+    <ul class="nav-menu">
+      <li>
+        <a href="index.html" class="nav-link">Home</a>
+      </li>
+
+      <li>
+        <a href="services.html" class="nav-link">Services</a>
+      </li>
+
+      <li>
+        <a href="about.html" class="nav-link">About</a>
+      </li>
+
+      <li>
+        <a href="insights.html" class="nav-link">Insights</a>
+      </li>
+
+      <li>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </li>
+    </ul>
+  </nav>
+
+  <a href="book-consultation.html" class="btn btn-primary">
+    Book Consultation &#8599;
+  </a>
+
+</div>
+```
+
+  </header>
+
+  <!-- ================================
+       CONTACT FORM
+       ================================ -->
+
+  <section style="padding: 4rem 0 3rem 0;">
+
+```
+<div class="container" style="max-width: 700px;">
+
+  <div class="interactive-card">
+
+    <h2 style="margin-bottom: 0.5rem;">
+      Submit an Inbound Brief
+    </h2>
+
+    <p style="
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    ">
+      Tell us about your business requirements and how we can help.
+    </p>
+
+    <form
+      id="gilead-contact-form"
+      class="flex flex-col"
+      style="gap: 1.25rem;"
+    >
+
+      <!-- Full Name -->
+
+      <div>
+
+        <label style="
+          display: block;
+          font-size: 0.85rem;
+          font-weight: 600;
+          margin-bottom: 0.25rem;
+        ">
+          Full Name *
+        </label>
+
+        <input
+          type="text"
+          name="fullName"
+          required
+          style="
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-light);
+          "
+        >
+
+      </div>
+
+
+      <!-- Email + Company -->
+
+      <div
+        class="grid form-grid"
+        style="
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+        "
+      >
+
+        <div>
+
+          <label style="
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+          ">
+            Email Address *
+          </label>
+
+          <input
+            type="email"
+            name="email"
+            required
+            style="
+              width: 100%;
+              padding: 0.75rem;
+              border-radius: 6px;
+              border: 1px solid var(--border-light);
+            "
+          >
+
+        </div>
+
+
+        <div>
+
+          <label style="
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+          ">
+            Company Name *
+          </label>
+
+          <input
+            type="text"
+            name="companyName"
+            required
+            style="
+              width: 100%;
+              padding: 0.75rem;
+              border-radius: 6px;
+              border: 1px solid var(--border-light);
+            "
+          >
+
+        </div>
+
+      </div>
+
+
+      <!-- Service -->
+
+      <div>
+
+        <label style="
+          display: block;
+          font-size: 0.85rem;
+          font-weight: 600;
+          margin-bottom: 0.25rem;
+        ">
+          Service Category *
+        </label>
+
+        <select
+          name="serviceCategory"
+          required
+          style="
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-light);
+            background: white;
+          "
+        >
+
+          <option value="">
+            Select Service Pillar...
+          </option>
+
+          <option value="Digital Marketing">
+            Digital Marketing
+          </option>
+
+          <option value="Brand & Marketing Communications">
+            Brand & Marketing Communications
+          </option>
+
+          <option value="Product & Growth">
+            Product & Growth
+          </option>
+
+          <option value="Other">
+            Other Strategic Need
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <!-- Project Brief -->
+
+      <div>
+
+        <label style="
+          display: block;
+          font-size: 0.85rem;
+          font-weight: 600;
+          margin-bottom: 0.25rem;
+        ">
+          Project Scope Brief
+        </label>
+
+        <textarea
+          name="brief"
+          rows="4"
+          style="
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-light);
+            resize: vertical;
+          "
+        ></textarea>
+
+      </div>
+
+
+      <!-- Submit -->
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        style="width: 100%;"
+      >
+        Send Brief
+      </button>
+
+
+      <!-- Feedback -->
+
+      <div
+        id="form-feedback"
+        style="
+          font-size: 0.9rem;
+          text-align: center;
+          margin-top: 0.5rem;
+        "
+      ></div>
+
+    </form>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- ================================
+       OFFICE & CONTACT DETAILS
+       THESE ARE NOW AFTER THE FORM
+       ================================ -->
+
+  <section style="padding: 1rem 0 4rem 0;">
+
+```
+<div
+  class="container grid"
+  style="
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(280px, 1fr)
+    );
+    gap: 1.5rem;
+  "
+>
+
+
+  <!-- Lagos Office Card -->
+
+  <div class="interactive-card">
+
+    <div class="icon-box">
+      &#128205;
+    </div>
+
+    <div style="
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--royal-blue);
+      text-transform: uppercase;
+    ">
+      Lagos Office
+    </div>
+
+    <h3 style="
+      margin: 0.25rem 0 0.75rem 0;
+    ">
+      Lagos
+    </h3>
+
+    <p style="
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    ">
+      33 Fatai Irawo Street, Ajao Estate,
+      Oshodi-Isolo, Lagos, Nigeria.
+    </p>
+
+  </div>
+
+
+  <!-- Contact Details Card -->
+
+  <div class="interactive-card">
+
+    <div class="icon-box">
+      &#128222;
+    </div>
+
+    <div style="
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--royal-blue);
+      text-transform: uppercase;
+    ">
+      Contact
+    </div>
+
+    <h3 style="
+      margin: 0.25rem 0 0.75rem 0;
+    ">
+      Speak With Us
+    </h3>
+
+    <p style="
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy-dark);
+      margin-bottom: 0.25rem;
+    ">
+      +234 913 548 1136
+    </p>
+
+    <p style="
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--royal-blue);
+      margin-bottom: 0.5rem;
+    ">
+      gileadadvisory.hq@gmail.com
+    </p>
+
+    <p style="
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    ">
+      Call or email us to discuss your business
+      requirements or arrange a consultation.
+    </p>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- ================================
+       FORM SCRIPT
+       ================================ -->
+
+  <script src="js/forms.js"></script>
+
+</body>
+</html>

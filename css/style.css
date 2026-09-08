@@ -1,0 +1,100 @@
+/* Gilead Business Advisory - Global Styles & Design System */
+:root {
+  --navy-dark: #0f2c59;
+  --royal-blue: #2563eb;
+  --soft-blue: #38bdf8;
+  --bg-offwhite: #fafafa;
+  --text-charcoal: #0f172a;
+  --text-muted: #64748b;
+  --border-light: #e2e8f0;
+  --white: #ffffff;
+  --card-shadow: 0 10px 25px -5px rgba(15, 44, 89, 0.05), 0 8px 10px -6px rgba(15, 44, 89, 0.05);
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-offwhite);
+  color: var(--text-charcoal);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  color: var(--text-charcoal);
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Background Grid Pattern from Visual Reference */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 44, 89, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 44, 89, 0.03) 1px, transparent 1px);
+}
+
+/* Button UI Components */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition-fast);
+  cursor: pointer;
+  border: 1px solid transparent;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background-color: var(--navy-dark);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--royal-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.btn-secondary {
+  background-color: var(--white);
+  color: var(--text-charcoal);
+  border-color: var(--border-light);
+}
+
+.btn-secondary:hover {
+  border-color: var(--royal-blue);
+  color: var(--royal-blue);
+  transform: translateY(-2px);
+}
+
+/* Layout Utilities */
+.grid { display: grid; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.flex-col { flex-direction: column; }

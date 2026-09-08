@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services Pillar Overview | Gilead Business Advisory Ltd.</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* Responsive Layout Styles */
+    :root {
+      --navy-dark: #0a192f;
+      --text-muted: #64748b;
+      --text-charcoal: #334155;
+      --bg-light: #f8fafc;
+      --border-color: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.5;
+      color: var(--text-charcoal);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Navigation Improvements */
+    .header-nav {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      background: var(--navy-dark);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      border-radius: 6px;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-charcoal);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .nav-link.active {
+      color: var(--navy-dark);
+      font-weight: 700;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.25rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      text-align: center;
+      transition: opacity 0.2s;
+    }
+
+    .btn-primary {
+      background-color: var(--navy-dark);
+      color: #ffffff;
+    }
+
+    /* Mobile Navigation Toggle Button */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--navy-dark);
+    }
+
+    /* Typography & Sections */
+    .section-padding {
+      padding: 2.5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 2.5rem auto;
+    }
+
+    .section-header h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      margin-bottom: 0.75rem;
+      color: var(--navy-dark);
+    }
+
+    /* Grid Layouts */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    /* Equal Height Card Structure */
+    .interactive-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .icon-box {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .interactive-card h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+      color: var(--navy-dark);
+    }
+
+    .interactive-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .capabilities-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+
+    .capabilities-list {
+      list-style: none;
+      margin-bottom: 2rem;
+      flex-grow: 1; /* Pushes button to bottom for visual consistency */
+    }
+
+    .capabilities-list li {
+      padding: 0.35rem 0;
+      font-size: 0.9rem;
+      color: var(--text-charcoal);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .card-action {
+      margin-top: auto;
+      font-weight: 600;
+      color: var(--navy-dark);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* How We Work Section */
+    .how-we-work-wrapper {
+      background-color: var(--bg-light);
+      padding: 2.5rem 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .process-card {
+      background: #ffffff;
+      padding: 1.25rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .process-card h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      color: var(--navy-dark);
+    }
+
+    .process-card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 868px) {
+      .nav-menu {
+        display: none; /* Hide standard nav on mobile */
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+      }
+
+      .section-padding {
+        padding: 2rem 0;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr; /* Single column on phones/tablets for vertical readability */
+      }
+
+      .how-we-work-wrapper {
+        padding: 1.5rem 1rem;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header-btn {
+        display: none; /* Streamline header actions on small mobile screens */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header-nav">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand">
+        <div class="brand-logo">G</div>
+        <div>
+          <div style="font-weight: 800; line-height: 1; font-size: 1.1rem; color: var(--navy-dark);">Gilead</div>
+          <div style="font-size: 0.65rem; letter-spacing: 0.05em; color: var(--text-muted); text-transform: uppercase;">Business Advisory</div>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link active">Services</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="insights.html" class="nav-link">Insights</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="book-consultation.html" class="btn btn-primary header-btn">Book Consultation &#8599;</a>
+      <button class="mobile-menu-toggle" aria-label="Toggle Navigation">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- Service Pillars Layout Section -->
+  <section class="section-padding">
+    <div class="container">
+      
+      <div class="section-header">
+        <h1>Core Service Capabilities</h1>
+        <p style="color: var(--text-muted);">We provide disciplined strategic advisory and execution across three primary pillars to ensure commercial growth and market distinction.</p>
+      </div>
+
+      <div class="services-grid">
+        
+        <!-- Pillar 1: Digital Marketing -->
+        <div class="interactive-card">
+          <div class="icon-box">&#128200;</div>
+          <h2>Digital Marketing</h2>
+          <p>We help businesses build stronger digital visibility, reach the right audiences, and turn digital activity into measurable commercial outcomes.</p>
+          <div class="capabilities-label">Capabilities</div>
+          <ul class="capabilities-list">
+            <li><span>&bull;</span><span>Social Media Marketing & Management</span></li>
+            <li><span>&bull;</span><span>Paid Advertising</span></li>
+            <li><span>&bull;</span><span>Search Engine Optimization (SEO)</span></li>
+            <li><span>&bull;</span><span>Email Marketing</span></li>
+            <li><span>&bull;</span><span>Content & Video Marketing</span></li>
+          </ul>
+          <a href="digital-marketing.html" class="card-action">Explore this service &rarr;</a>
+        </div>
+
+        <!-- Pillar 2: Product Growth -->
+        <div class="interactive-card">
+          <div class="icon-box">&#9881;</div>
+          <h2>Product Growth</h2>
+          <p>We help businesses turn products and opportunities into stronger market adoption, better customer experiences, and sustainable commercial growth.</p>
+          <div class="capabilities-label">Capabilities</div>
+          <ul class="capabilities-list">
+            <li><span>&bull;</span><span>Product Marketing/Management</span></li>
+            <li><span>&bull;</span><span>Go-to-market strategy</span></li>
+            <li><span>&bull;</span><span>Market Validation</span></li>
+            <li><span>&bull;</span><span>Product Adoption</span></li>
+            <li><span>&bull;</span><span>Growth Strategy</span></li>
+            <li><span>&bull;</span><span>Business Development</span></li>
+            <li><span>&bull;</span><span>Strategic Advisory & Implementation</span></li>
+          </ul>
+          <a href="product-growth.html" class="card-action">Explore this service &rarr;</a>
+        </div>
+
+        <!-- Pillar 3: Brand & Positioning -->
+        <div class="interactive-card">
+          <div class="icon-box">&#128161;</div>
+          <h2>Brand & Positioning</h2>
+          <p>We help businesses clarify their positioning, strengthen their brand presence, and communicate with greater consistency and impact.</p>
+          <div class="capabilities-label">Capabilities</div>
+          <ul class="capabilities-list">
+            <li><span>&bull;</span><span>Brand Strategy</span></li>
+            <li><span>&bull;</span><span>Brand Positioning</span></li>
+            <li><span>&bull;</span><span>Messaging & Value Proposition</span></li>
+            <li><span>&bull;</span><span>PR</span></li>
+            <li><span>&bull;</span><span>Content & Copywriting</span></li>
+            <li><span>&bull;</span><span>Brand Management</span></li>
+          </ul>
+          <a href="brand-communications.html" class="card-action">Explore this service &rarr;</a>
+        </div>
+
+      </div>
+
+      <!-- How We Work Section -->
+      <div class="how-we-work-wrapper">
+        <div style="max-width: 800px; margin: 0 auto;">
+          <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.5rem; text-align: center; color: var(--navy-dark);">How We Work</h2>
+          <h3 style="font-size: 1.1rem; color: var(--navy-dark); text-align: center; margin-bottom: 1.25rem; font-weight: 600;">Strategy First, Execution with Purpose</h3>
+          <p style="color: var(--text-muted); text-align: center; margin-bottom: 2rem; font-size: 0.95rem;">
+            We do not believe in disconnected deliverables. Every engagement starts with understanding the business, the market, the customer, and the commercial objective.
+          </p>
+          
+          <div class="process-grid">
+            <div class="process-card">
+              <h4>Diagnose</h4>
+              <p>We clarify the business context, market dynamics, audience insights, and commercial priorities.</p>
+            </div>
+            <div class="process-card">
+              <h4>Strategize</h4>
+              <p>We develop a practical, high-impact growth strategy aligned with the opportunity and desired outcome.</p>
+            </div>
+            <div class="process-card">
+              <h4>Build & Deploy</h4>
+              <p>We translate strategy into dedicated growth infrastructure, focused initiatives, and market campaigns.</p>
+            </div>
+            <div class="process-card">
+              <h4>Manage & Optimize</h4>
+              <p>We monitor performance, optimize systems, and continually refine the approach to maximize commercial outcomes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to Action Section -->
+      <div style="text-align: center; max-width: 650px; margin: 0 auto; padding: 1rem 0;">
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 1rem; color: var(--navy-dark);">Have a growth challenge we can help solve?</h2>
+        <p style="color: var(--text-muted); margin-bottom: 1.75rem; font-size: 0.95rem;">
+          Tell us where your business is today, what you are trying to achieve, and where you need strategic or execution support.
+        </p>
+        <a href="book-consultation.html" class="btn btn-primary" style="padding: 0.85rem 2rem; font-size: 1rem;">Book a Consultation</a>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
