@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -195,7 +195,6 @@
         opacity 0.25s ease;
     }
 
-    /* Turns the 3 lines into an X */
     .mobile-menu-toggle.active span:nth-child(1) {
       transform: translateY(7px) rotate(45deg);
     }
@@ -262,19 +261,6 @@
       flex-direction: column;
       height: 100%;
       box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
-    }
-
-    .icon-box {
-      width: 48px;
-      height: 48px;
-      background: var(--light-blue-soft);
-      color: var(--light-blue-dark);
-      border-radius: 10px;
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
     }
 
     .interactive-card h2 {
@@ -377,6 +363,7 @@
     ========================================================= */
 
     @media (max-width: 1000px) {
+
       .nav-menu {
         gap: 0.9rem;
       }
@@ -434,6 +421,7 @@
       }
 
       /* Hide desktop navigation */
+
       .nav-menu {
         display: none;
       }
@@ -443,11 +431,13 @@
       }
 
       /* Show hamburger */
+
       .mobile-menu-toggle {
         display: flex;
       }
 
       /* Mobile dropdown */
+
       .mobile-menu {
         position: absolute;
         top: calc(100% + 8px);
@@ -655,124 +645,162 @@
   ========================================================== -->
 
   <header class="header-nav">
+
     <div class="container nav-container">
 
+      <!-- Brand -->
 
-  <!-- Brand -->
-  <a href="index.html" class="nav-brand">
-    <div class="brand-logo">G</div>
+      <a href="index.html" class="nav-brand">
 
-    <div class="nav-brand-text">
-      <div class="nav-brand-title">
-        Gilead
-      </div>
+        <div class="brand-logo">
+          G
+        </div>
 
-      <div class="nav-brand-subtitle">
-        Business Advisory
-      </div>
+        <div class="nav-brand-text">
+
+          <div class="nav-brand-title">
+            Gilead
+          </div>
+
+          <div class="nav-brand-subtitle">
+            Business Advisory
+          </div>
+
+        </div>
+
+      </a>
+
+
+      <!-- Desktop Navigation -->
+
+      <nav aria-label="Desktop navigation">
+
+        <ul class="nav-menu">
+
+          <li>
+            <a
+              href="index.html"
+              class="nav-link"
+            >
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="services.html"
+              class="nav-link active"
+            >
+              Services
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="about.html"
+              class="nav-link"
+            >
+              About
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="insights.html"
+              class="nav-link"
+            >
+              Insights
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="contact.html"
+              class="nav-link"
+            >
+              Contact
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+      <!-- Desktop Consultation -->
+
+      <a
+        href="book-consultation.html"
+        class="btn btn-primary header-btn"
+      >
+        Book Consultation &#8599;
+      </a>
+
+
+      <!-- Mobile Hamburger -->
+
+      <button
+        class="mobile-menu-toggle"
+        id="mobileMenuToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+
     </div>
-  </a>
 
-  <!-- Desktop Navigation -->
-  <nav aria-label="Desktop navigation">
-    <ul class="nav-menu">
-      <li>
-        <a href="index.html" class="nav-link">
-          Home
-        </a>
-      </li>
 
-      <li>
-        <a href="services.html" class="nav-link active">
-          Services
-        </a>
-      </li>
+    <!-- =====================================================
+         MOBILE MENU
+    ====================================================== -->
 
-      <li>
-        <a href="about.html" class="nav-link">
-          About
-        </a>
-      </li>
+    <nav
+      class="mobile-menu"
+      id="mobileMenu"
+      aria-label="Mobile navigation"
+    >
 
-      <li>
-        <a href="insights.html" class="nav-link">
-          Insights
-        </a>
-      </li>
+      <a href="index.html">
+        Home
+      </a>
 
-      <li>
-        <a href="contact.html" class="nav-link">
-          Contact
-        </a>
-      </li>
-    </ul>
-  </nav>
+      <a
+        href="services.html"
+        class="active"
+      >
+        Services
+      </a>
 
-  <!-- Desktop Consultation -->
-  <a
-    href="book-consultation.html"
-    class="btn btn-primary header-btn"
-  >
-    Book Consultation &#8599;
-  </a>
+      <a href="about.html">
+        About
+      </a>
 
-  <!-- Mobile Hamburger -->
-  <button
-    class="mobile-menu-toggle"
-    id="mobileMenuToggle"
-    type="button"
-    aria-label="Open navigation menu"
-    aria-expanded="false"
-    aria-controls="mobileMenu"
-  >
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+      <a href="insights.html">
+        Insights
+      </a>
 
-</div>
+      <a href="contact.html">
+        Contact
+      </a>
 
-<!-- =====================================================
-     MOBILE MENU
-====================================================== -->
+      <a
+        href="book-consultation.html"
+        class="mobile-book"
+      >
+        Book a Consultation &#8599;
+      </a>
 
-<nav
-  class="mobile-menu"
-  id="mobileMenu"
-  aria-label="Mobile navigation"
->
-
-  <a href="index.html">
-    Home
-  </a>
-
-  <a href="services.html" class="active">
-    Services
-  </a>
-
-  <a href="about.html">
-    About
-  </a>
-
-  <a href="insights.html">
-    Insights
-  </a>
-
-  <a href="contact.html">
-    Contact
-  </a>
-
-  <a
-    href="book-consultation.html"
-    class="mobile-book"
-  >
-    Book a Consultation &#8599;
-  </a>
-
-</nav>
-
+    </nav>
 
   </header>
+
 
   <!-- =========================================================
        SERVICE PILLARS
@@ -780,378 +808,434 @@
 
   <section class="section-padding">
 
-
-<div class="container">
-
-  <div class="section-header">
-
-    <h1>
-      Core Service Capabilities
-    </h1>
-
-    <p>
-      We provide disciplined strategic advisory and execution
-      across three primary pillars to ensure commercial growth
-      and market distinction.
-    </p>
-
-  </div>
+    <div class="container">
 
 
-  <!-- =====================================================
-       SERVICE CARDS
-  ====================================================== -->
+      <!-- Section Header -->
 
-  <div class="services-grid">
+      <div class="section-header">
 
-    <!-- Pillar 1 -->
-    <div class="interactive-card">
+        <h1>
+          Core Service Capabilities
+        </h1>
 
-      <div class="icon-box">
-        &#128200;
+        <p>
+          We provide disciplined strategic advisory and execution
+          across three primary pillars to ensure commercial growth
+          and market distinction.
+        </p>
+
       </div>
 
-      <h2>
-        Digital Marketing
-      </h2>
 
-      <p>
-        We help businesses build stronger digital visibility,
-        reach the right audiences, and turn digital activity
-        into measurable commercial outcomes.
-      </p>
+      <!-- =====================================================
+           SERVICE CARDS
+      ====================================================== -->
 
-      <div class="capabilities-label">
-        Capabilities
+      <div class="services-grid">
+
+
+        <!-- Digital Marketing -->
+
+        <div class="interactive-card">
+
+          <h2>
+            Digital Marketing
+          </h2>
+
+          <p>
+            We help businesses build stronger digital visibility,
+            reach the right audiences, and turn digital activity
+            into measurable commercial outcomes.
+          </p>
+
+          <div class="capabilities-label">
+            Capabilities
+          </div>
+
+          <ul class="capabilities-list">
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Social Media Marketing &amp; Management
+              </span>
+            </li>
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Paid Advertising
+              </span>
+            </li>
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Search Engine Optimization (SEO)
+              </span>
+            </li>
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Email Marketing
+              </span>
+            </li>
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Content &amp; Video Marketing
+              </span>
+            </li>
+
+          </ul>
+
+          <a
+            href="digital-marketing.html"
+            class="card-action"
+          >
+            Explore this service &rarr;
+          </a>
+
+        </div>
+
+
+        <!-- Product Growth -->
+
+        <div class="interactive-card">
+
+          <h2>
+            Product Growth
+          </h2>
+
+          <p>
+            We help businesses turn products and opportunities
+            into stronger market adoption, better customer
+            experiences, and sustainable commercial growth.
+          </p>
+
+          <div class="capabilities-label">
+            Capabilities
+          </div>
+
+          <ul class="capabilities-list">
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Product Marketing/Management
+              </span>
+            </li>
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Go-to-market strategy
+              </span>
+            </li>
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Market Validation
+              </span>
+            </li>
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Product Adoption
+              </span>
+            </li>
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Growth Strategy
+              </span>
+            </li>
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Business Development
+              </span>
+            </li>
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Strategic Advisory &amp; Implementation
+              </span>
+            </li>
+
+          </ul>
+
+          <a
+            href="product-growth.html"
+            class="card-action"
+          >
+            Explore this service &rarr;
+          </a>
+
+        </div>
+
+
+        <!-- Brand & Positioning -->
+
+        <div class="interactive-card">
+
+          <h2>
+            Brand &amp; Positioning
+          </h2>
+
+          <p>
+            We help businesses clarify their positioning,
+            strengthen their brand presence, and communicate
+            with greater consistency and impact.
+          </p>
+
+          <div class="capabilities-label">
+            Capabilities
+          </div>
+
+          <ul class="capabilities-list">
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Brand Strategy
+              </span>
+            </li>
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Brand Positioning
+              </span>
+            </li>
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Messaging &amp; Value Proposition
+              </span>
+            </li>
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                PR
+              </span>
+            </li>
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Content &amp; Copywriting
+              </span>
+            </li>
+
+            <li>
+              <span>&bull;</span>
+              <span>
+                Brand Management
+              </span>
+            </li>
+
+          </ul>
+
+          <a
+            href="brand-communications.html"
+            class="card-action"
+          >
+            Explore this service &rarr;
+          </a>
+
+        </div>
+
       </div>
 
-      <ul class="capabilities-list">
 
-        <li>
-          <span>&bull;</span>
-          <span>Social Media Marketing &amp; Management</span>
-        </li>
+      <!-- =====================================================
+           HOW WE WORK
+      ====================================================== -->
 
-        <li>
-          <span>&bull;</span>
-          <span>Paid Advertising</span>
-        </li>
+      <div class="how-we-work-wrapper">
 
-        <li>
-          <span>&bull;</span>
-          <span>Search Engine Optimization (SEO)</span>
-        </li>
+        <div style="max-width: 800px; margin: 0 auto;">
 
-        <li>
-          <span>&bull;</span>
-          <span>Email Marketing</span>
-        </li>
+          <h2
+            style="
+              font-size: clamp(1.5rem, 3vw, 2rem);
+              margin-bottom: 0.5rem;
+              text-align: center;
+              color: var(--navy-dark);
+            "
+          >
+            How We Work
+          </h2>
 
-        <li>
-          <span>&bull;</span>
-          <span>Content &amp; Video Marketing</span>
-        </li>
+          <h3
+            style="
+              font-size: 1.1rem;
+              color: var(--navy-dark);
+              text-align: center;
+              margin-bottom: 1.25rem;
+              font-weight: 600;
+            "
+          >
+            Strategy First, Execution with Purpose
+          </h3>
 
-      </ul>
+          <p
+            style="
+              color: var(--text-muted);
+              text-align: center;
+              margin-bottom: 2rem;
+              font-size: 0.95rem;
+              line-height: 1.7;
+            "
+          >
+            We do not believe in disconnected deliverables.
+            Every engagement starts with understanding the
+            business, the market, the customer, and the
+            commercial objective.
+          </p>
 
-      <a
-        href="digital-marketing.html"
-        class="card-action"
-      >
-        Explore this service &rarr;
-      </a>
 
-    </div>
+          <div class="process-grid">
 
 
-    <!-- Pillar 2 -->
-    <div class="interactive-card">
+            <div class="process-card">
 
-      <div class="icon-box">
-        &#9881;
+              <h4>
+                Diagnose
+              </h4>
+
+              <p>
+                We clarify the business context, market dynamics,
+                audience insights, and commercial priorities.
+              </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+              <h4>
+                Strategize
+              </h4>
+
+              <p>
+                We develop a practical, high-impact growth
+                strategy aligned with the opportunity and
+                desired outcome.
+              </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+              <h4>
+                Build &amp; Deploy
+              </h4>
+
+              <p>
+                We translate strategy into dedicated growth
+                infrastructure, focused initiatives, and
+                market campaigns.
+              </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+              <h4>
+                Manage &amp; Optimize
+              </h4>
+
+              <p>
+                We monitor performance, optimize systems, and
+                continually refine the approach to maximize
+                commercial outcomes.
+              </p>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
       </div>
 
-      <h2>
-        Product Growth
-      </h2>
 
-      <p>
-        We help businesses turn products and opportunities
-        into stronger market adoption, better customer
-        experiences, and sustainable commercial growth.
-      </p>
+      <!-- =====================================================
+           CALL TO ACTION
+      ====================================================== -->
 
-      <div class="capabilities-label">
-        Capabilities
-      </div>
-
-      <ul class="capabilities-list">
-
-        <li>
-          <span>&bull;</span>
-          <span>Product Marketing/Management</span>
-        </li>
-
-        <li>
-          <span>&bull;</span>
-          <span>Go-to-market strategy</span>
-        </li>
-
-        <li>
-          <span>&bull;</span>
-          <span>Market Validation</span>
-        </li>
-
-        <li>
-          <span>&bull;</span>
-          <span>Product Adoption</span>
-        </li>
-
-        <li>
-          <span>&bull;</span>
-          <span>Growth Strategy</span>
-        </li>
-
-        <li>
-          <span>&bull;</span>
-          <span>Business Development</span>
-        </li>
-
-        <li>
-          <span>&bull;</span>
-          <span>Strategic Advisory &amp; Implementation</span>
-        </li>
-
-      </ul>
-
-      <a
-        href="product-growth.html"
-        class="card-action"
-      >
-        Explore this service &rarr;
-      </a>
-
-    </div>
-
-
-    <!-- Pillar 3 -->
-    <div class="interactive-card">
-
-      <div class="icon-box">
-        &#128161;
-      </div>
-
-      <h2>
-        Brand &amp; Positioning
-      </h2>
-
-      <p>
-        We help businesses clarify their positioning,
-        strengthen their brand presence, and communicate
-        with greater consistency and impact.
-      </p>
-
-      <div class="capabilities-label">
-        Capabilities
-      </div>
-
-      <ul class="capabilities-list">
-
-        <li>
-          <span>&bull;</span>
-          <span>Brand Strategy</span>
-        </li>
-
-        <li>
-          <span>&bull;</span>
-          <span>Brand Positioning</span>
-        </li>
-
-        <li>
-          <span>&bull;</span>
-          <span>Messaging &amp; Value Proposition</span>
-        </li>
-
-        <li>
-          <span>&bull;</span>
-          <span>PR</span>
-        </li>
-
-        <li>
-          <span>&bull;</span>
-          <span>Content &amp; Copywriting</span>
-        </li>
-
-        <li>
-          <span>&bull;</span>
-          <span>Brand Management</span>
-        </li>
-
-      </ul>
-
-      <a
-        href="brand-communications.html"
-        class="card-action"
-      >
-        Explore this service &rarr;
-      </a>
-
-    </div>
-
-  </div>
-
-
-  <!-- =====================================================
-       HOW WE WORK
-  ====================================================== -->
-
-  <div class="how-we-work-wrapper">
-
-    <div style="max-width: 800px; margin: 0 auto;">
-
-      <h2
+      <div
+        class="mobile-cta"
         style="
-          font-size: clamp(1.5rem, 3vw, 2rem);
-          margin-bottom: 0.5rem;
           text-align: center;
-          color: var(--navy-dark);
+          max-width: 650px;
+          margin: 0 auto;
+          padding: 1rem 0;
         "
       >
-        How We Work
-      </h2>
 
-      <h3
-        style="
-          font-size: 1.1rem;
-          color: var(--navy-dark);
-          text-align: center;
-          margin-bottom: 1.25rem;
-          font-weight: 600;
-        "
-      >
-        Strategy First, Execution with Purpose
-      </h3>
+        <h2
+          style="
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1rem;
+            color: var(--navy-dark);
+          "
+        >
+          Have a growth challenge we can help solve?
+        </h2>
 
-      <p
-        style="
-          color: var(--text-muted);
-          text-align: center;
-          margin-bottom: 2rem;
-          font-size: 0.95rem;
-          line-height: 1.7;
-        "
-      >
-        We do not believe in disconnected deliverables.
-        Every engagement starts with understanding the
-        business, the market, the customer, and the
-        commercial objective.
-      </p>
+        <p
+          style="
+            color: var(--text-muted);
+            margin-bottom: 1.75rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+          "
+        >
+          Tell us where your business is today, what you are
+          trying to achieve, and where you need strategic or
+          execution support.
+        </p>
 
-
-      <div class="process-grid">
-
-        <div class="process-card">
-          <h4>Diagnose</h4>
-          <p>
-            We clarify the business context, market dynamics,
-            audience insights, and commercial priorities.
-          </p>
-        </div>
-
-        <div class="process-card">
-          <h4>Strategize</h4>
-          <p>
-            We develop a practical, high-impact growth
-            strategy aligned with the opportunity and
-            desired outcome.
-          </p>
-        </div>
-
-        <div class="process-card">
-          <h4>Build &amp; Deploy</h4>
-          <p>
-            We translate strategy into dedicated growth
-            infrastructure, focused initiatives, and
-            market campaigns.
-          </p>
-        </div>
-
-        <div class="process-card">
-          <h4>Manage &amp; Optimize</h4>
-          <p>
-            We monitor performance, optimize systems, and
-            continually refine the approach to maximize
-            commercial outcomes.
-          </p>
-        </div>
+        <a
+          href="book-consultation.html"
+          class="btn btn-primary"
+          style="
+            padding: 0.85rem 2rem;
+            font-size: 1rem;
+          "
+        >
+          Book a Consultation
+        </a>
 
       </div>
 
     </div>
-
-  </div>
-
-
-  <!-- =====================================================
-       CALL TO ACTION
-  ====================================================== -->
-
-  <div
-    class="mobile-cta"
-    style="
-      text-align: center;
-      max-width: 650px;
-      margin: 0 auto;
-      padding: 1rem 0;
-    "
-  >
-
-    <h2
-      style="
-        font-size: clamp(1.5rem, 3vw, 2rem);
-        margin-bottom: 1rem;
-        color: var(--navy-dark);
-      "
-    >
-      Have a growth challenge we can help solve?
-    </h2>
-
-    <p
-      style="
-        color: var(--text-muted);
-        margin-bottom: 1.75rem;
-        font-size: 0.95rem;
-        line-height: 1.7;
-      "
-    >
-      Tell us where your business is today, what you are
-      trying to achieve, and where you need strategic or
-      execution support.
-    </p>
-
-    <a
-      href="book-consultation.html"
-      class="btn btn-primary"
-      style="
-        padding: 0.85rem 2rem;
-        font-size: 1rem;
-      "
-    >
-      Book a Consultation
-    </a>
-
-  </div>
-
-</div>
-
 
   </section>
+
 
   <!-- =========================================================
        MOBILE NAVIGATION JAVASCRIPT
   ========================================================== -->
 
   <script>
+
     document.addEventListener("DOMContentLoaded", function () {
 
       const menuButton =
@@ -1160,11 +1244,14 @@
       const mobileMenu =
         document.getElementById("mobileMenu");
 
+
       if (!menuButton || !mobileMenu) {
         return;
       }
 
+
       /* Open / Close mobile menu */
+
       menuButton.addEventListener("click", function (event) {
 
         event.stopPropagation();
@@ -1193,6 +1280,7 @@
 
 
       /* Close menu when a link is selected */
+
       const mobileLinks =
         mobileMenu.querySelectorAll("a");
 
@@ -1220,6 +1308,7 @@
 
 
       /* Close when clicking outside */
+
       document.addEventListener("click", function (event) {
 
         const clickedInsideMenu =
@@ -1227,6 +1316,7 @@
 
         const clickedButton =
           menuButton.contains(event.target);
+
 
         if (
           !clickedInsideMenu &&
@@ -1253,6 +1343,7 @@
 
 
       /* Reset menu when returning to desktop */
+
       window.addEventListener("resize", function () {
 
         if (window.innerWidth > 768) {
@@ -1276,7 +1367,9 @@
       });
 
     });
+
   </script>
+
 
   <script src="js/main.js"></script>
 
