@@ -278,6 +278,10 @@
       min-height: 110px;
     }
 
+    .form-field textarea::placeholder {
+      color: #94a3b8;
+    }
+
     /* =================================
        SEND BUTTON
        ================================= */
@@ -525,9 +529,7 @@
 
 <body>
 
-  <!-- =================================
-       NAVIGATION
-       ================================= -->
+  <!-- NAVIGATION -->
 
   <header class="header-nav">
 
@@ -674,9 +676,7 @@
   </header>
 
 
-  <!-- =================================
-       CONTACT FORM
-       ================================= -->
+  <!-- CONTACT FORM -->
 
   <section class="contact-form-section">
 
@@ -794,18 +794,19 @@
           </div>
 
 
-          <!-- Project Brief -->
+          <!-- Business Information -->
 
           <div class="form-field">
 
             <label for="brief">
-              Project Scope Brief
+              Tell us a bit about your business
             </label>
 
             <textarea
               id="brief"
               name="brief"
               rows="4"
+              placeholder="Tell us a bit about your business, what you do, and what you need help with..."
             ></textarea>
 
           </div>
@@ -841,9 +842,7 @@
   </section>
 
 
-  <!-- =================================
-       OFFICE & CONTACT DETAILS
-       ================================= -->
+  <!-- OFFICE & CONTACT DETAILS -->
 
   <section class="contact-details-section">
 
@@ -910,9 +909,7 @@
   </section>
 
 
-  <!-- =================================
-       MOBILE MENU SCRIPT
-       ================================= -->
+  <!-- MOBILE MENU SCRIPT -->
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
