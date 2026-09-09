@@ -1,19 +1,25 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services Pillar Overview | Gilead Business Advisory Ltd.</title>
+
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
+
   <style>
-    /* Responsive Layout Styles */
     :root {
       --navy-dark: #0a192f;
+      --light-blue: #007bff;
+      --light-blue-dark: #0056b3;
+      --light-blue-soft: #eaf2ff;
       --text-muted: #64748b;
       --text-charcoal: #334155;
-      --bg-light: #f8fafc;
-      --border-color: #e2e8f0;
+      --bg-light: #f8fbfe;
+      --border-color: #dbe7f0;
+      --white: #ffffff;
     }
 
     * {
@@ -22,10 +28,22 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       line-height: 1.5;
       color: var(--text-charcoal);
+      background: #ffffff;
+      overflow-x: hidden;
+    }
+
+    a {
+      -webkit-tap-highlight-color: transparent;
     }
 
     .container {
@@ -35,14 +53,18 @@
       padding: 0 1.25rem;
     }
 
-    /* Navigation Improvements */
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
     .header-nav {
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.98);
       border-bottom: 1px solid var(--border-color);
-      padding: 1rem 0;
+      padding: 0.85rem 0;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
     }
 
     .nav-container {
@@ -50,6 +72,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      min-height: 44px;
     }
 
     .nav-brand {
@@ -57,18 +80,39 @@
       align-items: center;
       gap: 0.75rem;
       text-decoration: none;
+      flex-shrink: 0;
     }
 
     .brand-logo {
-      width: 36px;
-      height: 36px;
-      background: var(--navy-dark);
-      color: #fff;
+      width: 38px;
+      height: 38px;
+      background: var(--light-blue);
+      color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      border-radius: 6px;
+      font-weight: 800;
+      border-radius: 7px;
+      flex-shrink: 0;
+    }
+
+    .nav-brand-text {
+      min-width: 0;
+    }
+
+    .nav-brand-title {
+      font-weight: 800;
+      line-height: 1;
+      font-size: 1.1rem;
+      color: var(--navy-dark);
+    }
+
+    .nav-brand-subtitle {
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 3px;
     }
 
     .nav-menu {
@@ -83,46 +127,106 @@
       color: var(--text-charcoal);
       font-weight: 500;
       font-size: 0.95rem;
+      transition: color 0.2s ease;
     }
 
+    .nav-link:hover,
     .nav-link.active {
-      color: var(--navy-dark);
-      font-weight: 700;
+      color: var(--light-blue-dark);
     }
 
     .btn {
       display: inline-block;
       padding: 0.75rem 1.25rem;
-      border-radius: 6px;
+      border-radius: 7px;
       text-decoration: none;
       font-weight: 600;
       text-align: center;
-      transition: opacity 0.2s;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
     }
 
     .btn-primary {
-      background-color: var(--navy-dark);
+      background-color: var(--light-blue);
       color: #ffffff;
     }
 
-    /* Mobile Navigation Toggle Button */
-    .mobile-menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--navy-dark);
+    .btn-primary:hover {
+      background-color: var(--light-blue-dark);
     }
 
-    /* Typography & Sections */
+    .header-btn {
+      white-space: nowrap;
+    }
+
+    /* =========================================================
+       MOBILE MENU BUTTON
+    ========================================================= */
+
+    .mobile-menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--navy-dark);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      padding: 0;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1100;
+    }
+
+    .mobile-menu-toggle span {
+      display: block;
+      width: 21px;
+      height: 2px;
+      background: var(--navy-dark);
+      border-radius: 2px;
+      transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+    }
+
+    /* Turns the 3 lines into an X */
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* =========================================================
+       MOBILE DROPDOWN
+    ========================================================= */
+
+    .mobile-menu {
+      display: none;
+    }
+
+    /* =========================================================
+       TYPOGRAPHY & SECTIONS
+    ========================================================= */
+
     .section-padding {
-      padding: 2.5rem 0;
+      padding: 3.5rem 0;
     }
 
     .section-header {
       text-align: center;
-      max-width: 650px;
+      max-width: 700px;
       margin: 0 auto 2.5rem auto;
     }
 
@@ -130,17 +234,25 @@
       font-size: clamp(1.75rem, 4vw, 2.5rem);
       margin-bottom: 0.75rem;
       color: var(--navy-dark);
+      line-height: 1.2;
     }
 
-    /* Grid Layouts */
+    .section-header p {
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* =========================================================
+       SERVICES GRID
+    ========================================================= */
+
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.5rem;
       margin-bottom: 3rem;
     }
 
-    /* Equal Height Card Structure */
     .interactive-card {
       background: #ffffff;
       border: 1px solid var(--border-color);
@@ -149,11 +261,19 @@
       display: flex;
       flex-direction: column;
       height: 100%;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
     }
 
     .icon-box {
-      font-size: 2rem;
+      width: 48px;
+      height: 48px;
+      background: var(--light-blue-soft);
+      color: var(--light-blue-dark);
+      border-radius: 10px;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 1rem;
     }
 
@@ -161,6 +281,7 @@
       font-size: 1.35rem;
       margin-bottom: 0.75rem;
       color: var(--navy-dark);
+      line-height: 1.3;
     }
 
     .interactive-card p {
@@ -182,7 +303,7 @@
     .capabilities-list {
       list-style: none;
       margin-bottom: 2rem;
-      flex-grow: 1; /* Pushes button to bottom for visual consistency */
+      flex-grow: 1;
     }
 
     .capabilities-list li {
@@ -194,17 +315,30 @@
       gap: 0.5rem;
     }
 
+    .capabilities-list li span:first-child {
+      color: var(--light-blue-dark);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
     .card-action {
       margin-top: auto;
       font-weight: 600;
-      color: var(--navy-dark);
+      color: var(--light-blue-dark);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
     }
 
-    /* How We Work Section */
+    .card-action:hover {
+      color: var(--navy-dark);
+    }
+
+    /* =========================================================
+       HOW WE WORK
+    ========================================================= */
+
     .how-we-work-wrapper {
       background-color: var(--bg-light);
       padding: 2.5rem 1.5rem;
@@ -215,7 +349,7 @@
 
     .process-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 1.25rem;
     }
 
@@ -235,173 +369,916 @@
     .process-card p {
       font-size: 0.875rem;
       color: var(--text-muted);
+      line-height: 1.6;
     }
 
-    /* Responsive Breakpoints */
-    @media (max-width: 868px) {
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media (max-width: 1000px) {
       .nav-menu {
-        display: none; /* Hide standard nav on mobile */
+        gap: 0.9rem;
       }
 
-      .mobile-menu-toggle {
-        display: block;
+      .nav-link {
+        font-size: 0.85rem;
       }
 
-      .section-padding {
-        padding: 2rem 0;
+      .header-btn {
+        padding: 0.65rem 0.8rem;
+        font-size: 0.8rem;
       }
 
       .services-grid {
-        grid-template-columns: 1fr; /* Single column on phones/tablets for vertical readability */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* =========================================================
+       MOBILE NAVIGATION
+    ========================================================= */
+
+    @media (max-width: 768px) {
+
+      .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .header-nav {
+        padding: 0.7rem 0;
+      }
+
+      .nav-container {
+        width: 100%;
+        gap: 0.6rem;
+      }
+
+      .nav-brand {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .brand-logo {
+        width: 38px;
+        height: 38px;
+      }
+
+      .nav-brand-text {
+        display: none;
+      }
+
+      /* Hide desktop navigation */
+      .nav-menu {
+        display: none;
+      }
+
+      .header-btn {
+        display: none;
+      }
+
+      /* Show hamburger */
+      .mobile-menu-toggle {
+        display: flex;
+      }
+
+      /* Mobile dropdown */
+      .mobile-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 1rem;
+        right: 1rem;
+
+        display: flex;
+        flex-direction: column;
+
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+
+        padding: 0.5rem;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        transform: translateY(-8px);
+
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease,
+          visibility 0.2s ease;
+      }
+
+      .mobile-menu.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .mobile-menu a {
+        display: block;
+        width: 100%;
+        padding: 0.9rem 1rem;
+        border-radius: 8px;
+
+        color: var(--navy-dark);
+        text-decoration: none;
+        font-size: 0.92rem;
+        font-weight: 600;
+      }
+
+      .mobile-menu a:hover,
+      .mobile-menu a.active {
+        background: var(--light-blue-soft);
+        color: var(--light-blue-dark);
+      }
+
+      .mobile-menu .mobile-book {
+        margin-top: 0.25rem;
+        background: var(--light-blue);
+        color: #ffffff;
+        text-align: center;
+      }
+
+      .mobile-menu .mobile-book:hover {
+        background: var(--light-blue-dark);
+        color: #ffffff;
+      }
+
+      /* =====================================================
+         MOBILE CONTENT
+      ===================================================== */
+
+      .section-padding {
+        padding: 2.5rem 0;
+      }
+
+      .section-header {
+        margin-bottom: 2rem;
+      }
+
+      .section-header h1 {
+        font-size: 2rem;
+      }
+
+      .section-header p {
+        font-size: 0.92rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .interactive-card {
+        padding: 1.35rem;
+        border-radius: 11px;
+      }
+
+      .interactive-card h2 {
+        font-size: 1.25rem;
+      }
+
+      .interactive-card p {
+        font-size: 0.92rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .capabilities-list {
+        margin-bottom: 1.5rem;
+      }
+
+      .capabilities-list li {
+        font-size: 0.88rem;
       }
 
       .how-we-work-wrapper {
         padding: 1.5rem 1rem;
+        margin-bottom: 2rem;
       }
 
       .process-grid {
         grid-template-columns: 1fr;
+        gap: 0.9rem;
       }
 
-      .header-btn {
-        display: none; /* Streamline header actions on small mobile screens */
+      .process-card {
+        padding: 1rem;
+      }
+
+      .process-card p {
+        font-size: 0.85rem;
+      }
+
+      .mobile-cta {
+        padding: 0 0.25rem 1rem !important;
+      }
+
+      .mobile-cta h2 {
+        font-size: 1.5rem !important;
+        line-height: 1.3;
+      }
+
+      .mobile-cta p {
+        font-size: 0.9rem !important;
+        line-height: 1.6;
+      }
+
+      .mobile-cta .btn {
+        width: 100%;
+        padding: 0.85rem 1rem !important;
+      }
+    }
+
+    /* =========================================================
+       VERY SMALL PHONES
+    ========================================================= */
+
+    @media (max-width: 380px) {
+
+      .container {
+        padding-left: 0.85rem;
+        padding-right: 0.85rem;
+      }
+
+      .mobile-menu-toggle {
+        width: 40px;
+        height: 40px;
+      }
+
+      .brand-logo {
+        width: 36px;
+        height: 36px;
+      }
+
+      .section-header h1 {
+        font-size: 1.75rem;
+      }
+
+      .interactive-card {
+        padding: 1.15rem;
+      }
+
+      .interactive-card h2 {
+        font-size: 1.15rem;
+      }
+
+      .interactive-card p {
+        font-size: 0.88rem;
+      }
+
+      .capabilities-list li {
+        font-size: 0.84rem;
+      }
+
+      .mobile-cta h2 {
+        font-size: 1.35rem !important;
       }
     }
   </style>
+
 </head>
+
 <body>
+
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
 
   <header class="header-nav">
     <div class="container nav-container">
-      <a href="index.html" class="nav-brand">
-        <div class="brand-logo">G</div>
-        <div>
-          <div style="font-weight: 800; line-height: 1; font-size: 1.1rem; color: var(--navy-dark);">Gilead</div>
-          <div style="font-size: 0.65rem; letter-spacing: 0.05em; color: var(--text-muted); text-transform: uppercase;">Business Advisory</div>
-        </div>
-      </a>
 
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="services.html" class="nav-link active">Services</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="insights.html" class="nav-link">Insights</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
 
-      <a href="book-consultation.html" class="btn btn-primary header-btn">Book Consultation &#8599;</a>
-      <button class="mobile-menu-toggle" aria-label="Toggle Navigation">&#9776;</button>
+  <!-- Brand -->
+  <a href="index.html" class="nav-brand">
+    <div class="brand-logo">G</div>
+
+    <div class="nav-brand-text">
+      <div class="nav-brand-title">
+        Gilead
+      </div>
+
+      <div class="nav-brand-subtitle">
+        Business Advisory
+      </div>
     </div>
+  </a>
+
+  <!-- Desktop Navigation -->
+  <nav aria-label="Desktop navigation">
+    <ul class="nav-menu">
+      <li>
+        <a href="index.html" class="nav-link">
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a href="services.html" class="nav-link active">
+          Services
+        </a>
+      </li>
+
+      <li>
+        <a href="about.html" class="nav-link">
+          About
+        </a>
+      </li>
+
+      <li>
+        <a href="insights.html" class="nav-link">
+          Insights
+        </a>
+      </li>
+
+      <li>
+        <a href="contact.html" class="nav-link">
+          Contact
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Desktop Consultation -->
+  <a
+    href="book-consultation.html"
+    class="btn btn-primary header-btn"
+  >
+    Book Consultation &#8599;
+  </a>
+
+  <!-- Mobile Hamburger -->
+  <button
+    class="mobile-menu-toggle"
+    id="mobileMenuToggle"
+    type="button"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+    aria-controls="mobileMenu"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+</div>
+
+<!-- =====================================================
+     MOBILE MENU
+====================================================== -->
+
+<nav
+  class="mobile-menu"
+  id="mobileMenu"
+  aria-label="Mobile navigation"
+>
+
+  <a href="index.html">
+    Home
+  </a>
+
+  <a href="services.html" class="active">
+    Services
+  </a>
+
+  <a href="about.html">
+    About
+  </a>
+
+  <a href="insights.html">
+    Insights
+  </a>
+
+  <a href="contact.html">
+    Contact
+  </a>
+
+  <a
+    href="book-consultation.html"
+    class="mobile-book"
+  >
+    Book a Consultation &#8599;
+  </a>
+
+</nav>
+
+
   </header>
 
-  <!-- Service Pillars Layout Section -->
+  <!-- =========================================================
+       SERVICE PILLARS
+  ========================================================== -->
+
   <section class="section-padding">
-    <div class="container">
-      
-      <div class="section-header">
-        <h1>Core Service Capabilities</h1>
-        <p style="color: var(--text-muted);">We provide disciplined strategic advisory and execution across three primary pillars to ensure commercial growth and market distinction.</p>
+
+
+<div class="container">
+
+  <div class="section-header">
+
+    <h1>
+      Core Service Capabilities
+    </h1>
+
+    <p>
+      We provide disciplined strategic advisory and execution
+      across three primary pillars to ensure commercial growth
+      and market distinction.
+    </p>
+
+  </div>
+
+
+  <!-- =====================================================
+       SERVICE CARDS
+  ====================================================== -->
+
+  <div class="services-grid">
+
+    <!-- Pillar 1 -->
+    <div class="interactive-card">
+
+      <div class="icon-box">
+        &#128200;
       </div>
 
-      <div class="services-grid">
-        
-        <!-- Pillar 1: Digital Marketing -->
-        <div class="interactive-card">
-          <div class="icon-box">&#128200;</div>
-          <h2>Digital Marketing</h2>
-          <p>We help businesses build stronger digital visibility, reach the right audiences, and turn digital activity into measurable commercial outcomes.</p>
-          <div class="capabilities-label">Capabilities</div>
-          <ul class="capabilities-list">
-            <li><span>&bull;</span><span>Social Media Marketing & Management</span></li>
-            <li><span>&bull;</span><span>Paid Advertising</span></li>
-            <li><span>&bull;</span><span>Search Engine Optimization (SEO)</span></li>
-            <li><span>&bull;</span><span>Email Marketing</span></li>
-            <li><span>&bull;</span><span>Content & Video Marketing</span></li>
-          </ul>
-          <a href="digital-marketing.html" class="card-action">Explore this service &rarr;</a>
-        </div>
+      <h2>
+        Digital Marketing
+      </h2>
 
-        <!-- Pillar 2: Product Growth -->
-        <div class="interactive-card">
-          <div class="icon-box">&#9881;</div>
-          <h2>Product Growth</h2>
-          <p>We help businesses turn products and opportunities into stronger market adoption, better customer experiences, and sustainable commercial growth.</p>
-          <div class="capabilities-label">Capabilities</div>
-          <ul class="capabilities-list">
-            <li><span>&bull;</span><span>Product Marketing/Management</span></li>
-            <li><span>&bull;</span><span>Go-to-market strategy</span></li>
-            <li><span>&bull;</span><span>Market Validation</span></li>
-            <li><span>&bull;</span><span>Product Adoption</span></li>
-            <li><span>&bull;</span><span>Growth Strategy</span></li>
-            <li><span>&bull;</span><span>Business Development</span></li>
-            <li><span>&bull;</span><span>Strategic Advisory & Implementation</span></li>
-          </ul>
-          <a href="product-growth.html" class="card-action">Explore this service &rarr;</a>
-        </div>
+      <p>
+        We help businesses build stronger digital visibility,
+        reach the right audiences, and turn digital activity
+        into measurable commercial outcomes.
+      </p>
 
-        <!-- Pillar 3: Brand & Positioning -->
-        <div class="interactive-card">
-          <div class="icon-box">&#128161;</div>
-          <h2>Brand & Positioning</h2>
-          <p>We help businesses clarify their positioning, strengthen their brand presence, and communicate with greater consistency and impact.</p>
-          <div class="capabilities-label">Capabilities</div>
-          <ul class="capabilities-list">
-            <li><span>&bull;</span><span>Brand Strategy</span></li>
-            <li><span>&bull;</span><span>Brand Positioning</span></li>
-            <li><span>&bull;</span><span>Messaging & Value Proposition</span></li>
-            <li><span>&bull;</span><span>PR</span></li>
-            <li><span>&bull;</span><span>Content & Copywriting</span></li>
-            <li><span>&bull;</span><span>Brand Management</span></li>
-          </ul>
-          <a href="brand-communications.html" class="card-action">Explore this service &rarr;</a>
-        </div>
-
+      <div class="capabilities-label">
+        Capabilities
       </div>
 
-      <!-- How We Work Section -->
-      <div class="how-we-work-wrapper">
-        <div style="max-width: 800px; margin: 0 auto;">
-          <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.5rem; text-align: center; color: var(--navy-dark);">How We Work</h2>
-          <h3 style="font-size: 1.1rem; color: var(--navy-dark); text-align: center; margin-bottom: 1.25rem; font-weight: 600;">Strategy First, Execution with Purpose</h3>
-          <p style="color: var(--text-muted); text-align: center; margin-bottom: 2rem; font-size: 0.95rem;">
-            We do not believe in disconnected deliverables. Every engagement starts with understanding the business, the market, the customer, and the commercial objective.
+      <ul class="capabilities-list">
+
+        <li>
+          <span>&bull;</span>
+          <span>Social Media Marketing &amp; Management</span>
+        </li>
+
+        <li>
+          <span>&bull;</span>
+          <span>Paid Advertising</span>
+        </li>
+
+        <li>
+          <span>&bull;</span>
+          <span>Search Engine Optimization (SEO)</span>
+        </li>
+
+        <li>
+          <span>&bull;</span>
+          <span>Email Marketing</span>
+        </li>
+
+        <li>
+          <span>&bull;</span>
+          <span>Content &amp; Video Marketing</span>
+        </li>
+
+      </ul>
+
+      <a
+        href="digital-marketing.html"
+        class="card-action"
+      >
+        Explore this service &rarr;
+      </a>
+
+    </div>
+
+
+    <!-- Pillar 2 -->
+    <div class="interactive-card">
+
+      <div class="icon-box">
+        &#9881;
+      </div>
+
+      <h2>
+        Product Growth
+      </h2>
+
+      <p>
+        We help businesses turn products and opportunities
+        into stronger market adoption, better customer
+        experiences, and sustainable commercial growth.
+      </p>
+
+      <div class="capabilities-label">
+        Capabilities
+      </div>
+
+      <ul class="capabilities-list">
+
+        <li>
+          <span>&bull;</span>
+          <span>Product Marketing/Management</span>
+        </li>
+
+        <li>
+          <span>&bull;</span>
+          <span>Go-to-market strategy</span>
+        </li>
+
+        <li>
+          <span>&bull;</span>
+          <span>Market Validation</span>
+        </li>
+
+        <li>
+          <span>&bull;</span>
+          <span>Product Adoption</span>
+        </li>
+
+        <li>
+          <span>&bull;</span>
+          <span>Growth Strategy</span>
+        </li>
+
+        <li>
+          <span>&bull;</span>
+          <span>Business Development</span>
+        </li>
+
+        <li>
+          <span>&bull;</span>
+          <span>Strategic Advisory &amp; Implementation</span>
+        </li>
+
+      </ul>
+
+      <a
+        href="product-growth.html"
+        class="card-action"
+      >
+        Explore this service &rarr;
+      </a>
+
+    </div>
+
+
+    <!-- Pillar 3 -->
+    <div class="interactive-card">
+
+      <div class="icon-box">
+        &#128161;
+      </div>
+
+      <h2>
+        Brand &amp; Positioning
+      </h2>
+
+      <p>
+        We help businesses clarify their positioning,
+        strengthen their brand presence, and communicate
+        with greater consistency and impact.
+      </p>
+
+      <div class="capabilities-label">
+        Capabilities
+      </div>
+
+      <ul class="capabilities-list">
+
+        <li>
+          <span>&bull;</span>
+          <span>Brand Strategy</span>
+        </li>
+
+        <li>
+          <span>&bull;</span>
+          <span>Brand Positioning</span>
+        </li>
+
+        <li>
+          <span>&bull;</span>
+          <span>Messaging &amp; Value Proposition</span>
+        </li>
+
+        <li>
+          <span>&bull;</span>
+          <span>PR</span>
+        </li>
+
+        <li>
+          <span>&bull;</span>
+          <span>Content &amp; Copywriting</span>
+        </li>
+
+        <li>
+          <span>&bull;</span>
+          <span>Brand Management</span>
+        </li>
+
+      </ul>
+
+      <a
+        href="brand-communications.html"
+        class="card-action"
+      >
+        Explore this service &rarr;
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       HOW WE WORK
+  ====================================================== -->
+
+  <div class="how-we-work-wrapper">
+
+    <div style="max-width: 800px; margin: 0 auto;">
+
+      <h2
+        style="
+          font-size: clamp(1.5rem, 3vw, 2rem);
+          margin-bottom: 0.5rem;
+          text-align: center;
+          color: var(--navy-dark);
+        "
+      >
+        How We Work
+      </h2>
+
+      <h3
+        style="
+          font-size: 1.1rem;
+          color: var(--navy-dark);
+          text-align: center;
+          margin-bottom: 1.25rem;
+          font-weight: 600;
+        "
+      >
+        Strategy First, Execution with Purpose
+      </h3>
+
+      <p
+        style="
+          color: var(--text-muted);
+          text-align: center;
+          margin-bottom: 2rem;
+          font-size: 0.95rem;
+          line-height: 1.7;
+        "
+      >
+        We do not believe in disconnected deliverables.
+        Every engagement starts with understanding the
+        business, the market, the customer, and the
+        commercial objective.
+      </p>
+
+
+      <div class="process-grid">
+
+        <div class="process-card">
+          <h4>Diagnose</h4>
+          <p>
+            We clarify the business context, market dynamics,
+            audience insights, and commercial priorities.
           </p>
-          
-          <div class="process-grid">
-            <div class="process-card">
-              <h4>Diagnose</h4>
-              <p>We clarify the business context, market dynamics, audience insights, and commercial priorities.</p>
-            </div>
-            <div class="process-card">
-              <h4>Strategize</h4>
-              <p>We develop a practical, high-impact growth strategy aligned with the opportunity and desired outcome.</p>
-            </div>
-            <div class="process-card">
-              <h4>Build & Deploy</h4>
-              <p>We translate strategy into dedicated growth infrastructure, focused initiatives, and market campaigns.</p>
-            </div>
-            <div class="process-card">
-              <h4>Manage & Optimize</h4>
-              <p>We monitor performance, optimize systems, and continually refine the approach to maximize commercial outcomes.</p>
-            </div>
-          </div>
         </div>
-      </div>
 
-      <!-- Call to Action Section -->
-      <div style="text-align: center; max-width: 650px; margin: 0 auto; padding: 1rem 0;">
-        <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 1rem; color: var(--navy-dark);">Have a growth challenge we can help solve?</h2>
-        <p style="color: var(--text-muted); margin-bottom: 1.75rem; font-size: 0.95rem;">
-          Tell us where your business is today, what you are trying to achieve, and where you need strategic or execution support.
-        </p>
-        <a href="book-consultation.html" class="btn btn-primary" style="padding: 0.85rem 2rem; font-size: 1rem;">Book a Consultation</a>
+        <div class="process-card">
+          <h4>Strategize</h4>
+          <p>
+            We develop a practical, high-impact growth
+            strategy aligned with the opportunity and
+            desired outcome.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <h4>Build &amp; Deploy</h4>
+          <p>
+            We translate strategy into dedicated growth
+            infrastructure, focused initiatives, and
+            market campaigns.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <h4>Manage &amp; Optimize</h4>
+          <p>
+            We monitor performance, optimize systems, and
+            continually refine the approach to maximize
+            commercial outcomes.
+          </p>
+        </div>
+
       </div>
 
     </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       CALL TO ACTION
+  ====================================================== -->
+
+  <div
+    class="mobile-cta"
+    style="
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 1rem 0;
+    "
+  >
+
+    <h2
+      style="
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        margin-bottom: 1rem;
+        color: var(--navy-dark);
+      "
+    >
+      Have a growth challenge we can help solve?
+    </h2>
+
+    <p
+      style="
+        color: var(--text-muted);
+        margin-bottom: 1.75rem;
+        font-size: 0.95rem;
+        line-height: 1.7;
+      "
+    >
+      Tell us where your business is today, what you are
+      trying to achieve, and where you need strategic or
+      execution support.
+    </p>
+
+    <a
+      href="book-consultation.html"
+      class="btn btn-primary"
+      style="
+        padding: 0.85rem 2rem;
+        font-size: 1rem;
+      "
+    >
+      Book a Consultation
+    </a>
+
+  </div>
+
+</div>
+
+
   </section>
 
+  <!-- =========================================================
+       MOBILE NAVIGATION JAVASCRIPT
+  ========================================================== -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const menuButton =
+        document.getElementById("mobileMenuToggle");
+
+      const mobileMenu =
+        document.getElementById("mobileMenu");
+
+      if (!menuButton || !mobileMenu) {
+        return;
+      }
+
+      /* Open / Close mobile menu */
+      menuButton.addEventListener("click", function (event) {
+
+        event.stopPropagation();
+
+        const isOpen =
+          mobileMenu.classList.toggle("open");
+
+        menuButton.classList.toggle(
+          "active",
+          isOpen
+        );
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
+        menuButton.setAttribute(
+          "aria-label",
+          isOpen
+            ? "Close navigation menu"
+            : "Open navigation menu"
+        );
+
+      });
+
+
+      /* Close menu when a link is selected */
+      const mobileLinks =
+        mobileMenu.querySelectorAll("a");
+
+      mobileLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+          mobileMenu.classList.remove("open");
+
+          menuButton.classList.remove("active");
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          menuButton.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+          );
+
+        });
+
+      });
+
+
+      /* Close when clicking outside */
+      document.addEventListener("click", function (event) {
+
+        const clickedInsideMenu =
+          mobileMenu.contains(event.target);
+
+        const clickedButton =
+          menuButton.contains(event.target);
+
+        if (
+          !clickedInsideMenu &&
+          !clickedButton
+        ) {
+
+          mobileMenu.classList.remove("open");
+
+          menuButton.classList.remove("active");
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          menuButton.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+          );
+
+        }
+
+      });
+
+
+      /* Reset menu when returning to desktop */
+      window.addEventListener("resize", function () {
+
+        if (window.innerWidth > 768) {
+
+          mobileMenu.classList.remove("open");
+
+          menuButton.classList.remove("active");
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          menuButton.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+          );
+
+        }
+
+      });
+
+    });
+  </script>
+
   <script src="js/main.js"></script>
+
 </body>
 </html>
